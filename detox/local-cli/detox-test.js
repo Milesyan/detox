@@ -105,7 +105,7 @@ function runMocha() {
 function runJest() {
   const configFile = runnerConfig ? `--config=${runnerConfig}` : '';
   const platformString = platform ? `--testNamePattern='^((?!${getPlatformSpecificString(platform)}).)*$'` : '';
-  const command = `node_modules/.bin/jest ${testFolder} ${configFile} --runInBand ${platformString}`;
+  const command = `node_modules/.bin/jest ${testFolder} ${configFile} --runInBand ${platformString} --json --outputFile='test-ui.json'`;
   console.log(command);
   cp.execSync(command, {
     stdio: 'inherit',
